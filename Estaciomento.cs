@@ -11,6 +11,11 @@ namespace semana3
         public DateTime Saida  { get; set; }
 
         public bool Ativo { get; set; }
+    public void CalcualarTempo (){
 
+    }
+    public void CalcualarValor(){
+
+    }
     }
 }
