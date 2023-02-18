@@ -14,6 +14,12 @@ opcao = Console.ReadLine();
 if (opcao=="1"){
  Console.WriteLine("Insira a placa do veículo"); 
  NovoCarro.Placa = Console.ReadLine(); 
+ Console.WriteLine("Insira o modelo do veículo"); 
+ NovoCarro.Modelo = Console.ReadLine(); 
+ Console.WriteLine("Insira a cor do veículo"); 
+ NovoCarro.Cor = Console.ReadLine(); 
+Console.WriteLine("Insira a marca do veículo"); 
+ NovoCarro.Marca = Console.ReadLine(); 
 }
 if(opcao =="2") { 
 Console.WriteLine("Hora de entrada"); 
