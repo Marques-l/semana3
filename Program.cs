@@ -1,4 +1,4 @@
-﻿using semana3; 
+using semana3; 
 string opcao; 
 List<Carro> Ticket = new List<Carro>();  
 do{
@@ -9,9 +9,6 @@ Console.WriteLine("4-Consultar histórico");
 Console.WriteLine("5-sair");
 opcao = Console.ReadLine(); 
 if (opcao=="1"){
-
-}
-if (opcao=="2"){
 
 }
 if (opcao=="3"){
