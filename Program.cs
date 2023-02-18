@@ -13,6 +13,7 @@ opcao = Console.ReadLine();
 
 if (opcao=="1"){
  Console.WriteLine("Insira a placa do veículo"); 
+ NovoCarro.Placa = Console.ReadLine(); 
 }
 if(opcao =="2") { 
 Console.WriteLine("Hora de entrada"); 
