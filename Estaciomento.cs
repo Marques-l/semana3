@@ -9,13 +9,14 @@ namespace semana3
     {
         public DateTime Entrada { get; set; }
         public DateTime Saida  { get; set; }
-
         public bool Ativo { get; set; }
+        public TimeSpan Tempo; 
+        public double Valor; 
     public void CalcualarTempo (){
-
+       Tempo = Entrada - Saida; 
     }
     public void CalcualarValor(){
-
+      Valor = Tempo.TotalMinutes *0.99; 
     }
     }
 }
