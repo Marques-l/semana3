@@ -1,7 +1,7 @@
 ﻿using semana3; 
 string opcao; 
 List<Carro> Ticket = new List<Carro>();  
- Estaciomento NovaEntrada = new Estaciomento();
+ Ticket NovaEntrada = new Ticket();
  Carro NovoCarro = new Carro(); 
 do{
 Console.WriteLine("1-Cadastrar carro");
