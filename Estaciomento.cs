@@ -13,7 +13,9 @@ namespace semana3
         public TimeSpan Tempo; 
         public double Valor; 
     public void CalcualarTempo (){
+      if (Ativo){ 
        Tempo = Entrada - Saida; 
+       }
     }
     public void CalcualarValor(){
       Valor = Tempo.TotalMinutes *0.99; 
