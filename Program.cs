@@ -1,6 +1,5 @@
 ﻿using semana3; 
 string opcao; 
-List<Carro> Ticket = new List<Carro>();  
  Ticket NovaEntrada = new Ticket();
  Carro NovoCarro = new Carro(); 
 do{
