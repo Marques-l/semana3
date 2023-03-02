@@ -1,7 +1,6 @@
 ﻿using semana3; 
 string opcao; 
  Ticket NovaEntrada = new Ticket();
- List<Carro>  NovoCarro = new List<Carro>(); 
 
   void Menu() { 
   do{
@@ -13,7 +12,7 @@ Console.WriteLine("5-sair");
 opcao = Console.ReadLine(); 
 
 if (opcao=="1"){
- CadastrarCarro(); 
+ Carro novoCarro =CadastrarCarro(); 
  
 }
 else if(opcao =="2") { 
@@ -26,7 +25,7 @@ NovaEntrada.Saida=DateTime.Parse(Console.ReadLine());
 }
 
 else if (opcao=="4"){
-  ExibirCarro(); 
+
 }
 
 
@@ -35,25 +34,18 @@ else if (opcao=="4"){
 Console.WriteLine("Tecle Enter para continuar"); 
 Console.ReadLine();
 }
-void CadastrarCarro() {
-        Carro NovoCarro = new Carro();
+Carro CadastrarCarro() {
+        Carro carro = new Carro();
         Console.WriteLine("Insira a placa do veículo"); 
-        NovoCarro.Placa = Console.ReadLine(); 
+        carro.Placa = Console.ReadLine(); 
         Console.WriteLine("Insira o modelo do veículo"); 
-        NovoCarro.Modelo = Console.ReadLine(); 
+        carro.Modelo = Console.ReadLine(); 
         Console.WriteLine("Insira a cor do veículo"); 
-        NovoCarro.Cor = Console.ReadLine(); 
+        carro.Cor = Console.ReadLine(); 
         Console.WriteLine("Insira a marca do veículo"); 
-        NovoCarro.Marca = Console.ReadLine();
-            
+        carro.Marca = Console.ReadLine();
+            return carro; 
     }
   
-void ExibirCarro(){
-        Console.WriteLine("Placa ---- Modelo ---- Cor ----- Marca"); 
-        for(int i = 0; i<NovoCarro.Count; i++) 
-        {
-        Console.WriteLine(NovoCarro[i].ResumoCarro()); 
-        NovoCarro.Add(NovoCarro[i]);
-        }
-        }
+
 Menu(); 
