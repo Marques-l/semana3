@@ -19,11 +19,14 @@ carros.Add(novoCarro);
 }
 else if(opcao =="2") { 
 Console.WriteLine("Hora de entrada"); 
+
 NovaEntrada.Entrada = DateTime.Parse(Console.ReadLine()); 
+NovaEntrada.Ativo = true; 
 }
 else if (opcao=="3"){
 Console.WriteLine("Hora de saída");
 NovaEntrada.Saida=DateTime.Parse(Console.ReadLine()); 
+NovaEntrada.Ativo=false; 
 }
 
 else if (opcao=="4"){
