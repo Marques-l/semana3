@@ -16,6 +16,11 @@ namespace semana3
       if (Ativo){ 
        Tempo = Entrada - Saida; 
        }
+       else {
+        Console.WriteLine("Carro não está estacionado"); 
+       }
+       
+
     }
     public void CalcualarValor(){
       Valor = Tempo.TotalMinutes *0.99; 
