@@ -24,7 +24,9 @@ namespace semana3
             Marca = marca; 
         }
        
-   
+        public string ResumoCliente(){
+            return $"{Placa} --- {Cor}"; 
+        }
     }
 }
     

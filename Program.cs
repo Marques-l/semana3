@@ -33,11 +33,10 @@ else if (opcao=="4"){
 else if (opcao=="6") {
   ExibirCarro(); 
 }
-
-} while (opcao!="5"); 
-
 Console.WriteLine("Tecle Enter para continuar"); 
 Console.ReadLine();
+} while (opcao!="5"); 
+
 
 Carro CadastrarCarro() {
         Carro carro = new Carro();
@@ -53,9 +52,11 @@ Carro CadastrarCarro() {
     }
   
     void ExibirCarro(){
+             
            for(int i = 0; i<carros.Count; i++) 
         {
-          Console.WriteLine($"{carros[i].Placa} --- {carros[i].Cor}"); 
+           Console.WriteLine("Placa--------Cor");
+           Console.WriteLine(carros[i].ResumoCliente()); 
         
         }
         }
