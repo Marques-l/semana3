@@ -14,6 +14,7 @@ namespace semana3
         List<Ticket> Tickets { get; set; } 
          
            public Carro(){
+            
            
         }
         public Carro(string placa, string modelo, string cor, string marca)

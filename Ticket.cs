@@ -12,18 +12,27 @@ namespace semana3
         public bool Ativo { get; set; }
         public TimeSpan Tempo; 
         public double Valor; 
-    public void CalcualarTempo (){
+       public List<Ticket> NovaEntrada {get; set;} 
+       public List<Ticket> NovaSaida {get; set;} 
+
+       public Ticket(){
+          NovaEntrada = new List<Ticket>(); 
+          NovaSaida = new List<Ticket>(); 
+       }
+
+    public TimeSpan CalcularTempo (){
       if (Ativo){ 
        Tempo = Entrada - Saida; 
        }
        else {
         Console.WriteLine("Carro não está estacionado"); 
        }
-       
+       return Tempo; 
 
     }
-    public void CalcualarValor(){
+    public double CalcularValor(){
       Valor = Tempo.TotalMinutes *0.99; 
+      return Valor; 
     }
     }
 }
