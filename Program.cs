@@ -81,6 +81,7 @@ Carro CadastrarCarro() {
    
    }
    void GerarTicket(){
+    if (Entrada.Ativo ==true) {
     Console.WriteLine("Insira a placa do veículo"); 
     string placa = Console.ReadLine(); 
     Carro carroId;
@@ -94,7 +95,7 @@ Carro CadastrarCarro() {
     Console.WriteLine(Entrada.CalcularValor());
     break;
       }
-
+    } 
     }
 
    }
