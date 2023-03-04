@@ -1,7 +1,7 @@
 ﻿using semana3; 
 List<Carro> carros = new List<Carro>();
 string opcao; 
-Ticket Entrada = new Ticket();
+Ticket ticket = new Ticket();
 carros.Add(new Carro ("1","Hatch", "Vermelho", "Mercedez")); 
 carros.Add(new Carro ("2","Conversível", "Amarelo", "Toyota"));
 carros.Add(new Carro ("3","Hatch", "Azul", "Mercedez"));
@@ -67,35 +67,38 @@ Carro CadastrarCarro() {
    void ObterCarro(){
     Console.WriteLine("Insira a placa do veículo"); 
     string placa = Console.ReadLine(); 
-    Carro carroId;
+    Carro carroId=null;
     foreach(var id in carros) {
       if (id.Placa==placa){
       carroId = id;  
-       Console.WriteLine("Hora de entrada");  
-      Entrada.Entrada = DateTime.Parse(Console.ReadLine()); 
-      Entrada.Ativo = true; 
+       
       break; 
       }
+      Console.WriteLine("Hora de entrada");  
         
+      ticket.Entrada = DateTime.Parse(Console.ReadLine()); 
+      ticket.Ativo = true; 
     }
    
    }
    void GerarTicket(){
-    if (Entrada.Ativo ==true) {
+    if (ticket.Ativo ==true) {
     Console.WriteLine("Insira a placa do veículo"); 
     string placa = Console.ReadLine(); 
-    Carro carroId;
+    Carro carroId=null;
     foreach(var id in carros) {
       if (id.Placa==placa){
       carroId = id; 
-    Console.WriteLine("Hora de saída");
-    Entrada.Saida=DateTime.Now; 
     
-    Console.WriteLine(Entrada.CalcularTempo()); 
-    Console.WriteLine(Entrada.CalcularValor());
     break;
       }
     } 
+    Console.WriteLine("Hora de saída");
+    
+    ticket.Saida=DateTime.Now; 
+    
+    Console.WriteLine(ticket.CalcularTempo()); 
+    Console.WriteLine(ticket.CalcularValor());
     }
 
    }

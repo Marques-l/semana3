@@ -12,8 +12,8 @@ namespace semana3
         public string Cor { get; set; }
         public string Marca { get; set; }
          
-         public static List<Carro> NovaEntrada {get; set;} 
-         public static List<Carro> NovaSaida {get; set;}
+         public  List<Carro> NovaEntrada {get; set;} 
+         public  List<Carro> NovaSaida {get; set;}
  
          
            public Carro(){
