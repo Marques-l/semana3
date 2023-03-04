@@ -2,9 +2,9 @@
 List<Carro> carros = new List<Carro>();
 string opcao; 
 Ticket Entrada = new Ticket();
-carros.Add(new Carro ("12322","Hatch", "Vermelho", "Mercedez")); 
-carros.Add(new Carro ("3343433","Conversível", "Amarelo", "Toyota"));
-carros.Add(new Carro ("5454545","Hatch", "Azul", "Mercedez"));
+carros.Add(new Carro ("1","Hatch", "Vermelho", "Mercedez")); 
+carros.Add(new Carro ("2","Conversível", "Amarelo", "Toyota"));
+carros.Add(new Carro ("3","Hatch", "Azul", "Mercedez"));
   
   do {
 Console.WriteLine("1-Cadastrar carro");
@@ -21,11 +21,11 @@ carros.Add(novoCarro);
 }
 else if(opcao =="2") { 
 
-ListaEntrada(); 
+ObterCarro();
 }
 else if (opcao=="3"){
 
-ListaSaida(); 
+ GerarTicket(); 
 }
 
 else if (opcao=="4"){
@@ -64,7 +64,7 @@ Carro CadastrarCarro() {
       
         
    }
-   void ListaEntrada(){
+   void ObterCarro(){
     Console.WriteLine("Insira a placa do veículo"); 
     string placa = Console.ReadLine(); 
     Carro carroId;
@@ -80,7 +80,7 @@ Carro CadastrarCarro() {
     }
    
    }
-   void ListaSaida(){
+   void GerarTicket(){
     Console.WriteLine("Insira a placa do veículo"); 
     string placa = Console.ReadLine(); 
     Carro carroId;
@@ -88,8 +88,9 @@ Carro CadastrarCarro() {
       if (id.Placa==placa){
       carroId = id; 
     Console.WriteLine("Hora de saída");
-    Entrada.Saida=DateTime.Parse(Console.ReadLine()); 
-    Entrada.Ativo=false; 
+    Entrada.Saida=DateTime.Now; 
+    
+
     Console.WriteLine(Entrada.CalcularTempo()); 
     Console.WriteLine(Entrada.CalcularValor());
     break;
