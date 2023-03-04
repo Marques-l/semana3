@@ -79,7 +79,9 @@ Carro CadastrarCarro() {
       ticket.Entrada = DateTime.Parse(Console.ReadLine()); 
       ticket.Ativo = true; 
     }
-   
+   if (carroId==null) {
+    Console.WriteLine("Carro não cadastrado, cadastre o carro."); 
+   }
    }
    void GerarTicket(){
     if (ticket.Ativo ==true) {
@@ -100,5 +102,5 @@ Carro CadastrarCarro() {
     Console.WriteLine(ticket.CalcularTempo()); 
     Console.WriteLine(ticket.CalcularValor());
     }
-
+     
    }
