@@ -12,13 +12,11 @@ namespace semana3
         public bool Ativo { get; set; }
         public TimeSpan Tempo; 
         public double Valor; 
-       public List<Ticket> NovaEntrada {get; set;} 
-       public List<Ticket> NovaSaida {get; set;} 
-
-       public Ticket(){
-          NovaEntrada = new List<Ticket>(); 
-          NovaSaida = new List<Ticket>(); 
-       }
+        public string Placa; 
+        
+      public Ticket(){
+           
+      }
 
     public TimeSpan CalcularTempo (){
       if (Ativo){ 

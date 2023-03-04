@@ -70,13 +70,13 @@ Carro CadastrarCarro() {
     Carro carroId;
     foreach(var id in carros) {
       if (id.Placa==placa){
-      carroId = id; 
+      carroId = id;  
        Console.WriteLine("Hora de entrada");  
       Entrada.Entrada = DateTime.Parse(Console.ReadLine()); 
       Entrada.Ativo = true; 
       break; 
       }
-
+        
     }
    
    }
@@ -90,13 +90,11 @@ Carro CadastrarCarro() {
     Console.WriteLine("Hora de saída");
     Entrada.Saida=DateTime.Now; 
     
-
     Console.WriteLine(Entrada.CalcularTempo()); 
     Console.WriteLine(Entrada.CalcularValor());
     break;
       }
 
     }
-     
-    
+
    }
