@@ -14,7 +14,7 @@ namespace semana3
          
          public  List<Carro> NovaEntrada {get; set;} 
          public  List<Carro> NovaSaida {get; set;}
- 
+        public static List<Carro> Carros1 = new List<Carro>(); 
          
            public Carro(){
             

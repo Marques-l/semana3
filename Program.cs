@@ -1,10 +1,11 @@
 ﻿using semana3; 
-List<Carro> carros = new List<Carro>();
+
 string opcao; 
-Ticket ticket = new Ticket();
-carros.Add(new Carro ("1","Hatch", "Vermelho", "Mercedez")); 
-carros.Add(new Carro ("2","Conversível", "Amarelo", "Toyota"));
-carros.Add(new Carro ("3","Hatch", "Azul", "Mercedez"));
+List<Ticket> ticket = new List<Ticket>();
+Ticket ticket1 = new Ticket(); 
+Carro.Carros1.Add(new Carro ("1","Hatch", "Vermelho", "Mercedez")); 
+Carro.Carros1.Add(new Carro ("2","Conversível", "Amarelo", "Toyota"));
+Carro.Carros1.Add(new Carro ("3","Hatch", "Azul", "Mercedez"));
   
   do {
 Console.WriteLine("1-Cadastrar carro");
@@ -17,7 +18,7 @@ opcao = Console.ReadLine();
 
 if (opcao=="1"){
  Carro novoCarro = CadastrarCarro(); 
-carros.Add(novoCarro); 
+Carro.Carros1.Add(novoCarro); 
 }
 else if(opcao =="2") { 
 
@@ -55,10 +56,10 @@ Carro CadastrarCarro() {
   
     void ExibirCarro(){
              
-           for(int i = 0; i<carros.Count; i++) 
+           for(int i = 0; i<Carro.Carros1.Count; i++) 
         {
            Console.WriteLine("Placa--------Cor");
-           Console.WriteLine(carros[i].ResumoCliente()); 
+           Console.WriteLine(Carro.Carros1[i].ResumoCliente()); 
         
         }
       
@@ -68,13 +69,13 @@ Carro CadastrarCarro() {
     Console.WriteLine("Insira a placa do veículo"); 
     string placa = Console.ReadLine(); 
     Carro carroId=null;
-    foreach(var id in carros) {
+    foreach(var id in Carro.Carros1) {
       if (id.Placa==placa){
       carroId = id;  
         Console.WriteLine("Hora de entrada");  
       
-      ticket.Entrada = DateTime.Parse(Console.ReadLine()); 
-      ticket.Ativo = true; 
+      ticket1.Entrada = DateTime.Parse(Console.ReadLine()); 
+      ticket1.Ativo = true; 
       Console.WriteLine("Seu Ticket foi criado"); 
       break; 
       }
@@ -82,7 +83,7 @@ Carro CadastrarCarro() {
     }
    if (carroId==null) {
     Console.WriteLine("Carro não cadastrado, cadastre o carro."); 
-    ticket.Ativo=false; 
+    ticket1.Ativo=false; 
    }
    
    }
@@ -91,15 +92,15 @@ Carro CadastrarCarro() {
     Console.WriteLine("Insira a placa do veículo"); 
     string placa = Console.ReadLine(); 
     Carro carroId=null;
-    foreach(var id in carros) {
+    foreach(var id in Carro.Carros1) {
       if (id.Placa==placa){
       carroId = id; 
     Console.WriteLine("Hora de saída");
     
-    ticket.Saida=DateTime.Now; 
+    ticket1.Saida=DateTime.Now; 
     
-    Console.WriteLine(ticket.CalcularTempo()); 
-    Console.WriteLine(ticket.CalcularValor());
+    Console.WriteLine(ticket1.CalcularTempo()); 
+    Console.WriteLine(ticket1.CalcularValor());
     break;
       }
     } 
@@ -121,8 +122,8 @@ Carro CadastrarCarro() {
 
    foreach (var outs in carroId.NovaSaida){
     Console.WriteLine($"Histórico de saída:{outs.NovaSaida}"); 
-     Console.WriteLine($"{ticket.Valor}"); 
-    Console.WriteLine($"{ticket.Tempo}"); 
+     Console.WriteLine($"{ticket1.Valor}"); 
+    Console.WriteLine($"{ticket1.Tempo}"); 
    }
    
    }
