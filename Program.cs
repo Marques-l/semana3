@@ -29,7 +29,7 @@ else if (opcao=="3"){
 }
 
 else if (opcao=="4"){
-
+Historico(); 
 }
 
 else if (opcao=="6") {
@@ -71,16 +71,16 @@ Carro CadastrarCarro() {
     foreach(var id in carros) {
       if (id.Placa==placa){
       carroId = id;  
-       
-      break; 
-      }
-      Console.WriteLine("Hora de entrada");  
-        
+        Console.WriteLine("Hora de entrada");  
+      
       ticket.Entrada = DateTime.Parse(Console.ReadLine()); 
       ticket.Ativo = true; 
+      break; 
+      }
+     
     }
    if (carroId==null) {
-    Console.WriteLine("Carro não cadastrado, cadastre o carro."); 
+    Console.WriteLine("Carro não cadastrado, cadastre o carro"); 
    }
    }
    void GerarTicket(){
@@ -91,16 +91,19 @@ Carro CadastrarCarro() {
     foreach(var id in carros) {
       if (id.Placa==placa){
       carroId = id; 
-    
-    break;
-      }
-    } 
     Console.WriteLine("Hora de saída");
     
     ticket.Saida=DateTime.Now; 
     
     Console.WriteLine(ticket.CalcularTempo()); 
     Console.WriteLine(ticket.CalcularValor());
+    break;
+      }
+    } 
+    
     }
      
+   }
+   void Historico(){
+
    }
