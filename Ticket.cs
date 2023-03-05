@@ -32,7 +32,7 @@ namespace semana3
 
     }
     public double CalcularValor(){
-      Valor = Tempo.TotalMinutes *0.99; 
+      Valor = Tempo.TotalMinutes *0.09; 
       return Valor; 
     }
     }
