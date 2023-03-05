@@ -17,6 +17,9 @@ namespace semana3
       public Ticket(){
            
       }
+      public Ticket(DateTime now, bool ativo){
+           
+      }
 
     public TimeSpan CalcularTempo (){
       if (Ativo){ 

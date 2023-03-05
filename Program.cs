@@ -75,16 +75,19 @@ Carro CadastrarCarro() {
       
       ticket.Entrada = DateTime.Parse(Console.ReadLine()); 
       ticket.Ativo = true; 
+      Console.WriteLine("Seu Ticket foi criado"); 
       break; 
       }
      
     }
    if (carroId==null) {
-    Console.WriteLine("Carro não cadastrado, cadastre o carro"); 
+    Console.WriteLine("Carro não cadastrado, cadastre o carro."); 
+    ticket.Ativo=false; 
    }
+   
    }
    void GerarTicket(){
-    if (ticket.Ativo ==true) {
+    if (ObterCarro!=null) {
     Console.WriteLine("Insira a placa do veículo"); 
     string placa = Console.ReadLine(); 
     Carro carroId=null;
@@ -105,5 +108,21 @@ Carro CadastrarCarro() {
      
    }
    void Historico(){
+    Console.WriteLine("Insira a placa do veículo"); 
+    string placa = Console.ReadLine(); 
+    Carro carroId=null;
+    if (carroId==null) {
+    Console.WriteLine("Carro não cadastrado, cadastre o carro."); 
+   }
+   foreach (var ins in carroId.NovaEntrada){
+    Console.WriteLine($"Histórico de entrada {ins.NovaEntrada}"); 
+   
+   }
 
+   foreach (var outs in carroId.NovaSaida){
+    Console.WriteLine($"Histórico de saída:{outs.NovaSaida}"); 
+     Console.WriteLine($"{ticket.Valor}"); 
+    Console.WriteLine($"{ticket.Tempo}"); 
+   }
+   
    }
