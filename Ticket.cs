@@ -22,12 +22,9 @@ namespace semana3
       }
 
     public TimeSpan CalcularTempo (){
-      if (Ativo){ 
+     
        Tempo = Entrada - Saida; 
-       }
-       else {
-        Console.WriteLine("Carro não está estacionado"); 
-       }
+       
        return Tempo; 
 
     }

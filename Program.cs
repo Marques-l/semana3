@@ -80,23 +80,21 @@ Carro CadastrarCarro() {
        
       break; 
       }
-      
+     
    }
-   
       Console.WriteLine("Tecle enter para gerar hora de entrada");
+      Console.ReadLine(); 
       Ticket ticket1 = new Ticket(); 
       ticket1.Entrada=DateTime.Now; 
       ticket1.Ativo =  true; 
       carroId.NovaEntrada.Add(ticket1); 
       Console.WriteLine("Seu Ticket foi criado"); 
-      
 
-    if (carroId==null) {
+        if (carroId==null) {
     Console.WriteLine("Carro não cadastrado, cadastre o carro."); 
      
     }
-
-   }
+     }
       
    
    void GerarTicket(){
@@ -116,9 +114,7 @@ Carro CadastrarCarro() {
     carroId.NovaSaida.Add(ticket2);
     break;
       }
-      else {
-        Console.WriteLine("Carro não cadastrado ou sem Ticket ativo."); 
-      }
+      
     } 
     
     }
