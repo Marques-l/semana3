@@ -22,12 +22,13 @@ namespace semana3
       }
 
     public TimeSpan CalcularTempo (){
-     
+    
        Tempo = Entrada - Saida; 
-       
+   
        return Tempo; 
-
+    
     }
+
     public double CalcularValor(){
       Valor = Tempo.TotalMinutes *0.09; 
       return Valor; 
