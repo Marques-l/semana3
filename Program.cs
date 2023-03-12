@@ -92,7 +92,7 @@ Carro CadastrarCarro() {
       
    
    void GerarTicket(){
-    Console.WriteLine("Insira a placa do veículo"); 
+    Console.WriteLine("Insira a placa do veículo"); //não faço ideia de como verificar gerarticket com obtercarro
     string placa = Console.ReadLine(); 
     Carro carroId=null;
     foreach(var id in Carro.Carros1) {
@@ -116,7 +116,7 @@ Carro CadastrarCarro() {
     
     
 
-     void FecharTicket(){
+     void FecharTicket(){ //Tentar validar aqui também 
     Console.WriteLine("Insira a placa do veículo"); 
     string placa = Console.ReadLine(); 
     Carro carroId=null;
