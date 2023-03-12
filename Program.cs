@@ -25,10 +25,12 @@ Carro.Carros1.Add(NovoCarro);
 else if(opcao =="2") { 
 
 ObterCarro();
+GerarTicket(); 
 }
 else if (opcao=="3"){
 
- GerarTicket(); 
+
+ FecharTicket(); 
 }
 
 else if (opcao=="4"){
@@ -76,33 +78,45 @@ Carro CadastrarCarro() {
     Carro carroId=null;
     foreach(var id in Carro.Carros1) {
       if (id.Placa==placa){
-        carroId = id;  
-       Console.WriteLine("Tecle enter para gerar hora de entrada");// Tentando colocar aqui para ver se consegue fazer as verificações. 
-       Console.ReadLine(); 
-       Ticket ticket1 = new Ticket(); 
-       if (ticket1.Ativo==true) {
-        Console.WriteLine("O carro já possui um Ticket ativo"); //Tentando colocar o block do ticket ativo. 
-        break; 
-       }
-       ticket1.Entrada=DateTime.Now; 
-       ticket1.Ativo =  true; 
-       carroId.NovaEntrada.Add(ticket1); 
-       Console.WriteLine("Seu Ticket foi criado"); 
-       break; 
-      }
-     
-   }
-      // se não der certo volta p cá. 
-
-        if (carroId==null) { // Block do carro não cadastrado. 
-    Console.WriteLine("Carro não cadastrado, cadastre o carro."); 
-     
+       carroId = id;  
+       Console.WriteLine("Carro encontrado, tecle enter para continuar");
+       Console.ReadLine();
+       break;  
     }
-     }
+    if (carroId==null) {
+      Console.WriteLine("O carro não está cadastrado, por favor, cadastre o carro");
+      break; 
+    }
+   }
+  }
       
    
    void GerarTicket(){
+    Console.WriteLine("Insira a placa do veículo"); 
+    string placa = Console.ReadLine(); 
+    Carro carroId=null;
+    foreach(var id in Carro.Carros1) {
+      if (id.Placa==placa){
+       carroId = id;  
+       Console.WriteLine("Tecle enter para gerar hora de entrada");
+       Console.ReadLine(); 
+       Ticket ticket1 = new Ticket(); 
+       if (ticket1.Ativo==true) {
+      Console.WriteLine("O carro já possui um Ticket ativo"); }
+      if (ticket1.Ativo==false) {
+      ticket1.Entrada=DateTime.Now; 
+      ticket1.Ativo =  true; 
+      carroId.NovaEntrada.Add(ticket1); 
+      Console.WriteLine("Seu Ticket foi criado");
+      
+    }
+      }
+       }
+       }
     
+    
+
+     void FecharTicket(){
     Console.WriteLine("Insira a placa do veículo"); 
     string placa = Console.ReadLine(); 
     Carro carroId=null;
@@ -122,8 +136,8 @@ Carro CadastrarCarro() {
       }
       
     } 
-    
-    }
+
+   }
      
    
    void Historico(){
@@ -147,3 +161,4 @@ Carro CadastrarCarro() {
    
    
    }
+   
