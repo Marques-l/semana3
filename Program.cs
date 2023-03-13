@@ -119,10 +119,10 @@ void  CadastrarCarro() { // Corrigido
       Console.WriteLine("Carro não cadastrado, por favor faça o cadastro"); 
       return; 
     }
-   Console.WriteLine("Entrada----------             Saída             ----------             Ativo             ----------             Valor"); 
+   Console.WriteLine("Entrada----------                        Saída                        ----------                        Ativo                        ----------                        Valor"); 
    foreach (var ticket in carro.Tickets)
    {
-    Console.WriteLine($"{ticket.Entrada}----------{ticket.Saida}----------{ticket.Ativo.ToString()}----------{ticket.CalcularValor()} R$"); 
+    Console.WriteLine($"{ticket.Entrada}----{ticket.Saida}----{ticket.Ativo.ToString()}----{ticket.CalcularValor()} R$"); 
    }
    }
    
