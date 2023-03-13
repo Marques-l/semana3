@@ -10,9 +10,8 @@ namespace semana3
         public DateTime Entrada { get; set; }
         public DateTime Saida  { get; set; }
         public bool Ativo { get; set; }
-       public string Placa; // Tempo e valor foi retirado daqui
-        
-      public Ticket(){ // Tentando pelo construtor
+               
+        public Ticket(){ // Tentando pelo construtor
            Entrada = DateTime.Now; 
            Ativo = true; 
       }
