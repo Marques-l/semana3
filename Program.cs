@@ -3,6 +3,7 @@
 string opcao; 
 
 
+
 Carro.Carros1.Add(new Carro ("1","Hatch", "Vermelho", "Mercedez")); //Inserindo uns itens 
 Carro.Carros1.Add(new Carro ("2","Conversível", "Amarelo", "Toyota"));
 Carro.Carros1.Add(new Carro ("3","Hatch", "Azul", "Mercedez"));
@@ -13,37 +14,31 @@ Console.WriteLine("2-Marcar entrada");
 Console.WriteLine("3-Marcar saída");
 Console.WriteLine("4-Consultar histórico");
 Console.WriteLine("5-sair");
-Console.WriteLine("6-Exibir carros");
 opcao = Console.ReadLine(); 
 
 if (opcao=="1"){
-Carro NovoCarro = CadastrarCarro(); // Adicionando na lista estática
-Carro.Carros1.Add(NovoCarro); 
+CadastrarCarro(); 
 }
 else if(opcao =="2") { 
 
-ObterCarro();
-GerarTicket(); 
+GerarTicket(); // Agora ele só chama GerarTicket 
 }
 else if (opcao=="3"){
 
-
- FecharTicket(); 
+FecharTicket(); 
 }
 
 else if (opcao=="4"){
 Historico(); 
 }
 
-else if (opcao=="6") {
-  ExibirCarro(); 
-}
 Console.WriteLine("Tecle Enter para continuar"); 
 Console.ReadLine();
 } while (opcao!="5"); 
 
 
-Carro CadastrarCarro() {
+void  CadastrarCarro() { // Corrigido 
+
         Carro carro = new Carro(); // Objeto para o carro
         Console.WriteLine("Insira a placa do veículo"); //Inserindo informações através do ReadLine
         carro.Placa = Console.ReadLine(); 
@@ -53,110 +48,81 @@ Carro CadastrarCarro() {
         carro.Cor = Console.ReadLine(); 
         Console.WriteLine("Insira a marca do veículo"); 
         carro.Marca = Console.ReadLine();
-        return carro; 
+        Carro.Carros1.Add(carro);  // Adicionando na lista estática na classe carro 
         
            
     }
   
-    void ExibirCarro(){
-             
-           for(int i = 0; i<Carro.Carros1.Count; i++) 
-        {
-           Console.WriteLine("Placa--------Cor");
-           Console.WriteLine(Carro.Carros1[i].ResumoCliente()); 
-        
-        }
-      
-        
+  
+  Carro ObterCarro(string placa){ // Agora ele só identifica se o carro tá cadastrado, e não é chamado no menu 
+       foreach(var carro in Carro.Carros1) { // mas sim como uma verificação do GerarTicket
+      if (placa == carro.Placa){
+        return carro; 
+    }
+    }
+    return null; 
    }
-   void ObterCarro(){
-    
+        
+   
+   void GerarTicket(){ // Já corrigido 
     Console.WriteLine("Insira a placa do veículo"); 
     string placa = Console.ReadLine(); 
-    Carro carroId=null;
-    foreach(var id in Carro.Carros1) {
-      if (id.Placa==placa){
-       carroId = id;  
-       Console.WriteLine("Carro encontrado, tecle enter para continuar");
-       Console.ReadLine();
-       break;  
+    var carro = ObterCarro(placa); 
+    if (carro == null) {
+      Console.WriteLine("Carro não cadastrado, por favor faça o cadastro"); 
+      return; 
     }
-    if (carroId==null) {
-      Console.WriteLine("O carro não está cadastrado, por favor, cadastre o carro");
-      break; 
+    foreach (var ticket in carro.Tickets)
+    {
+      if (ticket.Ativo == true) {
+        Console.WriteLine("O carro já possui Ticket ativo"); 
+        return; 
+      }
     }
+    Ticket TicketNovo = new Ticket(); //Criando um objeto para usar a classe Ticket 
+    carro.Tickets.Add(TicketNovo); // TicketNovo pelo construtor já tem todas as informações necessárias
+    Console.WriteLine("O seu Ticket foi criado"); // Avisa ao usuário que o Ticket foi criado
    }
+    
+    
+
+    void FecharTicket(){ 
+    Console.WriteLine("Insira a placa do veículo"); 
+    string placa = Console.ReadLine(); 
+    var carro = ObterCarro(placa); 
+    if (carro == null) {
+      Console.WriteLine("Carro não cadastrado, por favor faça o cadastro"); 
+      return; 
+    }
+    Ticket ticketAberto = null; // Null por padrão
+    foreach (var ticket in carro.Tickets)
+    {
+      if (ticket.Ativo == true) 
+      {
+        ticketAberto = ticket;  
+      }
+   } 
+   
+   if (ticketAberto == null) {
+    Console.WriteLine("Carro não possui Ticket aberto"); 
+    return; 
+   }
+   ticketAberto.FecharTicket(); // Acho que tem que chamar o que a gente fez na classe Ticket aqui 
   }
-      
    
-   void GerarTicket(){
-    Console.WriteLine("Insira a placa do veículo"); //não faço ideia de como verificar gerarticket com obtercarro
-    string placa = Console.ReadLine(); 
-    Carro carroId=null;
-    foreach(var id in Carro.Carros1) {
-      if (id.Placa==placa){
-       carroId = id;  
-       Console.WriteLine("Tecle enter para gerar hora de entrada");
-       Console.ReadLine(); 
-       Ticket ticket1 = new Ticket(); 
-       if (ticket1.Ativo==true) {
-      Console.WriteLine("O carro já possui um Ticket ativo"); }
-      if (ticket1.Ativo==false) {
-      ticket1.Entrada=DateTime.Now; 
-      ticket1.Ativo =  true; 
-      carroId.NovaEntrada.Add(ticket1); 
-      Console.WriteLine("Seu Ticket foi criado");
-      
-    }
-      }
-       }
-       }
-    
-    
 
-     void FecharTicket(){ //Tentar validar aqui também 
-    Console.WriteLine("Insira a placa do veículo"); 
-    string placa = Console.ReadLine(); 
-    Carro carroId=null;
-    foreach(var id in Carro.Carros1) {
-      if (id.Placa==placa){
-      carroId = id; 
-      
-    Console.WriteLine("Tecle enter para gerar hora de saída");
-    Ticket ticket2 = new Ticket();
-    
-    ticket2.Saida=DateTime.Now; 
-    
-    Console.WriteLine(ticket2.CalcularTempo()); 
-    Console.WriteLine(ticket2.CalcularValor());
-    carroId.NovaSaida.Add(ticket2);
-    break;
-      }
-      
-    } 
-
-   }
-     
-   
    void Historico(){
-    Console.WriteLine("Insira a placa do veículo"); 
+    Console.WriteLine("Insira a placa do veículo");  // De novo verificando a placa e vendo se o carro existe 
     string placa = Console.ReadLine(); 
-    Carro carroId=null;
-    if (carroId==null) {
-    Console.WriteLine("Carro não cadastrado, cadastre o carro."); 
-   }
-   foreach (Ticket ticket1 in carroId.NovaEntrada){
-    Console.WriteLine($"Histórico de entrada {ticket1.Entrada}"); 
-   
-   }
-
-   foreach (Ticket ticket2 in carroId.NovaSaida){
-     
-    Console.WriteLine($"Histórico de saída:{ticket2.Saida}"); 
-    Console.WriteLine($"{ticket2.CalcularTempo()}"); // Como a propriedade tempo foi inserida nessa função teve que chamar CalcularTempo
-    Console.WriteLine($"{ticket2.CalcularValor()}"); 
+    var carro = ObterCarro(placa); 
+    if (carro == null) {
+      Console.WriteLine("Carro não cadastrado, por favor faça o cadastro"); 
+      return; 
     }
-   
-   
+   Console.WriteLine("Entrada----------Saída----------Ativo----------Valor"); 
+   foreach (var ticket in carro.Tickets)
+   {
+    Console.WriteLine($"{ticket.Entrada}----------{ticket.Saida}----------{ticket.Ativo.ToString()}----------{ticket.CalcularValor()} R$"); 
+   }
    }
    

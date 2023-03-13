@@ -11,10 +11,11 @@ namespace semana3
         public string Modelo { get; set; }
         public string Cor { get; set; }
         public string Marca { get; set; }
+        public static List<Carro> Carros1 = new List<Carro>(); 
          public List<Ticket> Tickets {get; set;} // Essa vai ser a lista que provavelmente vai ser usada
          public  List<Ticket> NovaEntrada {get; set;} //Provavelmente tirar isso depois 
          public  List<Ticket> NovaSaida {get; set;} //Provavelmente tirar isso depois
-        public static List<Carro> Carros1 = new List<Carro>(); 
+        
          
            public Carro(){
             Tickets = new List<Ticket>(); 
