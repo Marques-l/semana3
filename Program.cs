@@ -155,8 +155,8 @@ Carro CadastrarCarro() {
    foreach (Ticket ticket2 in carroId.NovaSaida){
      
     Console.WriteLine($"Histórico de saída:{ticket2.Saida}"); 
-     Console.WriteLine($"{ticket2.Valor}"); 
-    Console.WriteLine($"{ticket2.Tempo}"); 
+    Console.WriteLine($"{ticket2.CalcularTempo()}"); // Como a propriedade tempo foi inserida nessa função teve que chamar CalcularTempo
+    Console.WriteLine($"{ticket2.CalcularValor()}"); 
     }
    
    

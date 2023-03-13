@@ -10,28 +10,27 @@ namespace semana3
         public DateTime Entrada { get; set; }
         public DateTime Saida  { get; set; }
         public bool Ativo { get; set; }
-        public TimeSpan Tempo; 
-        public double Valor; 
-        public string Placa; 
+       public string Placa; // Tempo e valor foi retirado daqui
         
-      public Ticket(){
-           
+      public Ticket(){ // Tentando pelo construtor
+           Entrada = DateTime.Now; 
+           Ativo = true; 
       }
       public Ticket(DateTime now, bool ativo){
            
       }
 
-    public TimeSpan CalcularTempo (){
+    public double CalcularTempo (){ // Colocando como double, como return o tempo total em minutos
     
-       Tempo = Entrada - Saida; 
+       var tempo = Saida - Entrada;  
    
-       return Tempo; 
+       return tempo.TotalMinutes; 
     
     }
 
     public double CalcularValor(){
-      Valor = Tempo.TotalMinutes *0.09; 
-      return Valor; 
+   
+      return CalcularTempo()*0.09; 
     }
     }
 }
