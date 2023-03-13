@@ -3,9 +3,7 @@
 string opcao; 
 
 
-
-Carro Novo = new Carro(); 
-Carro.Carros1.Add(new Carro ("1","Hatch", "Vermelho", "Mercedez")); 
+Carro.Carros1.Add(new Carro ("1","Hatch", "Vermelho", "Mercedez")); //Inserindo uns itens 
 Carro.Carros1.Add(new Carro ("2","Conversível", "Amarelo", "Toyota"));
 Carro.Carros1.Add(new Carro ("3","Hatch", "Azul", "Mercedez"));
   
@@ -19,7 +17,7 @@ Console.WriteLine("6-Exibir carros");
 opcao = Console.ReadLine(); 
 
 if (opcao=="1"){
-Carro NovoCarro = CadastrarCarro(); 
+Carro NovoCarro = CadastrarCarro(); // Adicionando na lista estática
 Carro.Carros1.Add(NovoCarro); 
 }
 else if(opcao =="2") { 
@@ -46,8 +44,8 @@ Console.ReadLine();
 
 
 Carro CadastrarCarro() {
-        Carro carro = new Carro();
-        Console.WriteLine("Insira a placa do veículo"); 
+        Carro carro = new Carro(); // Objeto para o carro
+        Console.WriteLine("Insira a placa do veículo"); //Inserindo informações através do ReadLine
         carro.Placa = Console.ReadLine(); 
         Console.WriteLine("Insira o modelo do veículo"); 
         carro.Modelo = Console.ReadLine(); 
