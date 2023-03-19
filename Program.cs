@@ -49,7 +49,7 @@ void  CadastrarCarro() { // Corrigido
         Console.WriteLine("Insira a marca do veículo"); 
         carro.Marca = Console.ReadLine();
         Carro.Carros1.Add(carro);  // Adicionando na lista estática na classe carro 
-        
+       
            
     }
   
