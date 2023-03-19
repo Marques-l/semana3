@@ -48,7 +48,7 @@ void  CadastrarCarro() { // Corrigido
         carro.Cor = Console.ReadLine(); 
         Console.WriteLine("Insira a marca do veículo"); 
         carro.Marca = Console.ReadLine();
-        Carro.Carros1.Add(carro);  // Adicionando na lista estática na classe carro 
+        Carro.Carros1.Add(carro);  // Adicionando na lista na classe carro 
        
            
     }
